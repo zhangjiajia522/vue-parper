@@ -1,0 +1,25 @@
+
+
+开发租户 ods是 ma是业务系统的名字  dw是组件复用层
+<>表示不等号
+select * from BpaMain where myAccountType = 'TW' And myCustomerLevel = 'Distributor'
+
+sql servel 
+SELECT * FROM dbo.BpaMyTestEntity;查询当前表数据
+插入数据
+INSERT INTO dbo.BpaMyTestEntity(PKey, Status, MyTest) VALUES(3, 'S', 'MyTest');
+SELECT TOP 100 * FROM dbo.BpaMyTestEntity ORDER BY PKey;正序
+SELECT TOP 100 * FROM dbo.BpaMyTestEntity ORDER BY PKey DESC; 倒序
+UPDATE dbo.BpaMyTestEntity SET HKey = 2 WHERE PKey = 2;更新当前表数据
+DELETE dbo.BpaMyTestEntity WHERE PKey = 3 AND HKey = 1;删除当前行数据
+truncate table 表名 删除整个表里的数据
+
+ALTER TABLE dbo.PrmMain ADD MyTaticAndFranchise VARCHAR(100); // 插入某一列默认为空
+ALTER TABLE dbo.PrmMain DROP COLUMN  TaticAndFranchise  // 删除某一列
+
+hive，
+mysql查询数据的瓶颈：索引查询（500w)和聚合查询(sum,count,之类的100w)
+传统行业数据量不大，一年几百万条数据吧
+mpp数据库
+
+帆软账号密码一样：jiajia.zhang

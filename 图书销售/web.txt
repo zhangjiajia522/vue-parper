@@ -1,0 +1,74 @@
+一个页面从输入 URL 到页面加载显示完成，这个过程中都发生了什么?
+浏览器根据请求的URL交给DNS域名解析，找到真实IP，向服务器发起请求；
+服务器交给后台处理完成后返回数据，浏览器接收文件（HTML、JS、CSS、图象等）；
+浏览器对加载到的资源（HTML、JS、CSS等）进行语法解析，建立相应的内部数据结构（如HTML的DOM）；
+载入解析到的资源文件，渲染页面，完成。
+vue的传参有哪些，
+路由传参，query和params
+父子传参porps，
+子组件触发事件emit
+vuex是存放组件间共享数据
+State存放共享数据(count)
+mutation更改State中数据。
+Action中执行异步函数。
+Getter 用于对Store 中的数据进行加工处理形成新的数据。
+
+vue的生命周期：
+ajax异步请求的参数或databody不依赖dom的话，放在created和mounted都可以
+第一阶段（创建阶段）：beforeCreate（不获取数据，没渲染真实dom），created（能访问到数据了，没渲染真实dom，可以进行初始化事件的绑定、发送请求操作）
+第二阶段（挂载阶段）：beforeMount（同created），mounted（数据挂载完毕，dom元素渲染完成）
+第三阶段（更新阶段）：beforeUpdate（组件挂载完毕且当数据改变的时候，才会立马执行。获取dom的是更新之前），updated（修改DOM的操作可以在此期间执行，最好再watch里面）
+第四阶段（销毁阶段）：beforeDestroy（清除一些初始化事件、定时器相关），destroyed
+
+
+ES6的新特性：
+let和const的那一对大括号{}内起作用，也称块级作用域（ES6之前只有函数作用域和全局作用域）。同一变量不能重复声明。
+var可以重复声明。会提升变量的声明到作用域的顶部，但let和const不会。
+var和let可以重新赋值，const不可以。
+解构赋值是对赋值运算符的扩展
+Map构造函数接收一个二维数组来创建一个Map对象
+箭头函数
+Promise：异步操作会在将来的某个时间点触发一个函数调用。
+成功与失败的回调，调用resolve promise.then对应会调用，代表成功，调用reject对应调用promise.catch代表失败
+Generator 构造函数并不是全局可用。Generator 函数是分段执行的，yield表达式是暂停执行的标记，而 next方法可以恢复执行
+
+简单的登录：
+用户名密码校验用正则，
+token是后台生成的可以存放在前台的cookies，但是会有安全问题，
+包装再ajax的封装方法里面，header上，每次请求可以附带，
+存在web的storage里面，客户端存储
+
+主数据包括供应商，客户，员工，
+vue的单向数据流：父子组件传参只能是父传子不能子传父，想改变的话就需要用emit事件
+
+vue2和3的区别：
+生命周期的叫法不同，
+支持碎片化，有多个根节点
+双向绑定发生了变化
+2.0是es5 的一个API Object.definepropert() 对数据进行劫持 结合发布订阅模式来实现的。
+3.0是使用了es6的proxyAPI对数据进行处理。
+父子传参不同：
+setup (props, { attrs, slots, emit }) {
+
+reactive参数必须是对象(json/arr)
+前端的优化：
+少用float，计算量大，加载速度慢。
+图片优化，精灵图，图片懒加载，压缩js，减少DOM操作，
+html，删除元素的默认属性如checkbox，减少注释，压缩控空白符号
+减少http请求，缓存ajax请求，延迟加载，避免404，预加载，vue路由的懒加载
+cookie和storage的区别:
+cookie存储在浏览器，只能存储字符串类型数据，存储4k，可根据http传送浏览器，安全性低
+session：存储在服务器端，服务器端数据通过cookie方式存储，禁用cookie，url会重写
+storage存储在客户浏览器端，数据需手动删除，可加密存储各种类型的数据
+sessionstorage和localstorage区别
+LocalStorage 是持久化存储，除非手动清除；用户偏好设置。
+SessionStorage 是会话级别存储，浏览器关闭后数据失效。临时存储数据，如页面状态、表单数据等。
+项目遇到的难点怎么解决：
+
+响应式布局
+移动端布局：屏幕适配：
+百分比（宽度百分比，高度固定），
+弹性（flex）
+rem（相对长度单位，等比缩放）
+响应式（媒体查询）
+
